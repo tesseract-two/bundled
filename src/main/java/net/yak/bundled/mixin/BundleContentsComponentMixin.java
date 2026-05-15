@@ -48,7 +48,6 @@ public class BundleContentsComponentMixin {
     @Inject(method = "getWeight", at = @At("RETURN"), cancellable = true)
     private static void bundled$unstackablesChangeWeight(ItemInstance item, CallbackInfoReturnable<DataResult<Fraction>> cir) {
         if (item.get(DataComponents.BUNDLE_CONTENTS) == null && item.get(DataComponents.BEES) == null) {
-            System.out.println("Inside first if!");
             if (item.is(Bundled.MAX_WEIGHT)) { // max weight tag
                 cir.setReturnValue(DataResult.success(Fraction.getFraction(1, 1)));
             }
